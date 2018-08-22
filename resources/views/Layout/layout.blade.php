@@ -12,7 +12,7 @@
 </head>
 <body>
     @include('partials.nav')
-    <Div class="container">
+    <Div class="cont-laravel">
       @yield('content')  
     </Div>
     
