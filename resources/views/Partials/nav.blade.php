@@ -11,13 +11,14 @@
     
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
-                                <li role="presentation" class="nav-item"><a href="/" class="nav-link active">Home</a></li>
-                                <li role="presentation" class="nav-item"><a href="/about" class="nav-link active">About</a></li>
-                                <li role="presentation" class="nav-item"><a href="/services" class="nav-link active">Services</a></li>
-                                <li role="presentation" class="nav-item"><a href="/posts" class="nav-link active">Blog</a></li>
-                        </ul>
-    
+                        
+                            <ul class="navbar-nav mr-auto">
+                                    <li role="presentation" class="nav-item"><a href="/" class="nav-link active">Home</a></li>
+                                    <li role="presentation" class="nav-item"><a href="/about" class="nav-link active">About</a></li>
+                                    <li role="presentation" class="nav-item"><a href="/services" class="nav-link active">Services</a></li>
+                                    <li role="presentation" class="nav-item"><a href="/posts" class="nav-link active">Blog</a></li>
+                            </ul>
+ 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
                             <!-- Authentication Links -->
