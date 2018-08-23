@@ -8,7 +8,7 @@
         {!!$post->body!!}
     </div>
     <hr>
-    <small>Written on {{$post->created_at}}</small>
+    <small>Written on {{$post->created_at}} by {{$post->user->name}}</small>
 
     <hr>
     <a href="/posts/{{$post->id}}/edit" class="btn btn-primary float-left" role="button">Edit Post</a>
@@ -18,5 +18,7 @@
         {!! Form::hidden('_method', 'DELETE') !!}
         {!! Form::submit('Delete Post', ['class' => 'btn btn-danger float-right']) !!}
     {!! Form::close() !!}
+
+    
    
 @endsection

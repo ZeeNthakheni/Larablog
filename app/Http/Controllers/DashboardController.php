@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use App\Post;
 
 class DashboardController extends Controller
 {
@@ -23,6 +26,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('pages.dashboard');
+        //Find logged in user by the ID
+        $user = User::find(Auth::id());
+        
+        return view('pages.dashboard')->with('posts',$user->posts);
     }
+
+    
 }

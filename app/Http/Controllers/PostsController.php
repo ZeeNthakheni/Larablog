@@ -7,6 +7,7 @@ use App\Post;
 
 class PostsController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -47,6 +48,8 @@ class PostsController extends Controller
         //Assign values
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        //Getting user id
+        $post->user_id = auth()->user()->id;
         //Save Post
         $post->save();
         //Redirect
@@ -113,6 +116,7 @@ class PostsController extends Controller
     public function destroy($id)
     {
         $post = Post::find($id);
+    
         $post->delete();
         return redirect('/posts')->with('success','Post Deleted');
     }
