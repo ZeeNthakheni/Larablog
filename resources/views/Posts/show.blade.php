@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layouts.admin')
 
 @section('content')
     <a href="/posts" class="btn btn-default">Go Back</a>

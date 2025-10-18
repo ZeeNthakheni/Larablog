@@ -1,26 +1,21 @@
-@extends('layout.layout')
+@extends('layouts.admin')
 
 @section('content')
-
     <h1>Edit Post</h1>
-
-    {!! Form::open(['action'=> ['PostsController@update',$post->id],'method'=> 'POST','enctype' => 'multipart/form-data']) !!}
+    <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data">
+        @csrf
+        @method('PUT')
         <div class="form-group">
-           {{ Form::label('title', 'Title') }} 
-           {{ Form::text('title', $post->title,['class' => 'form-control','placeholder' => 'Title']) }} 
+            <label for="title">Title</label>
+            <input type="text" name="title" class="form-control" placeholder="Title" value="{{ $post->title }}">
         </div>
         <div class="form-group">
-            {{ Form::label('body', 'Body') }} 
-            {{ Form::textarea('body', $post->body,['id' => 'article-ckeditor','class' => 'form-control','placeholder' => 'Body Text'])}} 
+            <label for="body">Body</label>
+            <textarea name="body" class="form-control" placeholder="Body">{{ $post->body }}</textarea>
         </div>
-         
         <div class="form-group">
-            {!! Form::file('cover_image') !!}      
+            <input type="file" name="cover_image">
         </div>
-
-        {!! Form::hidden('_method', 'PUT') !!}
-         
-        {!! Form::submit('Submit', ['class' => 'btn btn-primary']) !!}
-         
-    {!! Form::close() !!}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
 @endsection
