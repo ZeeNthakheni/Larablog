@@ -193,6 +193,35 @@ php artisan test --testsuite=Unit
 - Authentication system
 - Model relationships
 
+## Security Considerations
+
+### ⚠️ Important Security Notice
+This project currently uses Laravel 5.6.40, which has several known security vulnerabilities. For production deployment, it is **strongly recommended** to upgrade to a more recent version of Laravel (8.x or 9.x) that addresses these security issues.
+
+### Known Vulnerabilities in Laravel 5.6.40:
+- Environment manipulation via query string
+- OS Command Injection
+- Improper Input Validation
+- SQL Server LIMIT/OFFSET SQL Injection
+- Unexpected database bindings
+- RCE vulnerability in "cookie" session driver
+
+### Immediate Security Mitigations:
+1. **Do not use this version in production** without upgrading Laravel
+2. Ensure proper input validation in all user inputs
+3. Use parameterized queries for all database operations
+4. Implement proper CSRF protection (already included)
+5. Use HTTPS for all admin access
+6. Set strong `APP_KEY` and keep it secret
+7. Disable debug mode in production (`APP_DEBUG=false`)
+
+### Recommended Upgrade Path:
+1. Upgrade to Laravel 8.x or 9.x
+2. Update all dependencies to their latest secure versions
+3. Review and test all custom middleware and controllers
+4. Implement additional security headers
+5. Consider using Laravel Sanctum for API authentication
+
 ## Production Deployment
 
 ### 1. Environment Optimization
