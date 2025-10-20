@@ -24,3 +24,12 @@ Route::resource('posts', 'PostsController');
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index');
+
+// Admin routes
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
+    Route::get('/', 'AdminController@dashboard')->name('admin.dashboard');
+    Route::get('/users', 'AdminController@users')->name('admin.users');
+    Route::get('/users/{user}', 'AdminController@userShow')->name('admin.users.show');
+    Route::delete('/users/{user}', 'AdminController@userDestroy')->name('admin.users.destroy');
+    Route::get('/posts', 'AdminController@posts')->name('admin.posts');
+});
