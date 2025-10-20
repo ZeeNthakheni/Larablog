@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,8 +23,12 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'can:is-admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
+    Route::resource('users', UserController::class);
 });
 
 Route::resource('posts', PostsController::class)->middleware('auth');
 
 require __DIR__.'/auth.php';
+
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])
+    ->name('login');

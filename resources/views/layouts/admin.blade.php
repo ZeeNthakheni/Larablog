@@ -1,55 +1,34 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="https://demos.creative-tim.com/argon-dashboard/assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="https://demos.creative-tim.com/argon-dashboard/assets/img/favicon.png">
-    <title>
-        Argon Dashboard 2 by Creative Tim
-    </title>
-    <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-    <!-- Nucleo Icons -->
-    <link href="https://demos.creative-tim.com/argon-dashboard/assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="https://demos.creative-tim.com/argon-dashboard/assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-    <link href="https://demos.creative-tim.com/argon-dashboard/assets/css/nucleo-svg.css" rel="stylesheet" />
-    <!-- CSS Files -->
-    <link id="pagestyle" href="https://demos.creative-tim.com/argon-dashboard/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@yield('title', 'Admin Dashboard')</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/console-bsb.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap/dist/css/jsvectormap.min.css">
 </head>
-<body class="g-sidenav-show   bg-gray-100">
-    <div class="min-height-300 bg-primary position-absolute w-100"></div>
-    <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
-        @include('layouts.partials.admin_sidebar')
-    </aside>
-    <main class="main-content position-relative border-radius-lg ">
-        <!-- Navbar -->
-        @include('layouts.partials.admin_nav')
-        <!-- End Navbar -->
-        <div class="container-fluid py-4">
-            @yield('content')
-        </div>
+<body>
+    @include('layouts.admin.header')
+
+    <main id="main">
+        @yield('content')
     </main>
-    <!--   Core JS Files   -->
-    <script src="https://demos.creative-tim.com/argon-dashboard/assets/js/core/popper.min.js"></script>
-    <script src="https://demos.creative-tim.com/argon-dashboard/assets/js/core/bootstrap.min.js"></script>
-    <script src="https://demos.creative-tim.com/argon-dashboard/assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="https://demos.creative-tim.com/argon-dashboard/assets/js/plugins/smooth-scrollbar.min.js"></script>
-    <script src="https://demos.creative-tim.com/argon-dashboard/assets/js/plugins/chartjs.min.js"></script>
-    <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-            var options = {
-                damping: '0.5'
-            }
-            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-    </script>
-    <!-- Github buttons -->
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="https://demos.creative-tim.com/argon-dashboard/assets/js/argon-dashboard.min.js?v=2.0.4"></script>
+
+    @include('layouts.admin.sidebar')
+    @include('layouts.admin.footer')
+
+    <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap/dist/maps/world-merc.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/bootstrap5@6.1.9/index.global.min.js"></script>
+    <script src="{{ asset('assets/controller/console-bsb.js') }}"></script>
+    <script src="{{ asset('assets/controller/chart-1.js') }}"></script>
+    <script src="{{ asset('assets/controller/chart-3.js') }}"></script>
+    <script src="{{ asset('assets/controller/chart-4.js') }}"></script>
+    <script src="{{ asset('assets/controller/map-2.js') }}"></script>
+    <script src="{{ asset('assets/controller/calendar-1.js') }}"></script>
 </body>
 </html>
